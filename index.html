@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Trafix App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .profile-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .profile-header h2 {
+            margin: 0;
+        }
+        .profile-header p {
+            font-size: 14px;
+            color: #666;
+        }
+        .profile-info, .recent-activities, .personal-experience {
+            margin-top: 20px;
+        }
+        .profile-info p, .recent-activities p, .personal-experience p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .settings-button, .logout-button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .logout-button {
+            background-color: #f44336;
+        }
+        .activity-item {
+            padding: 8px;
+            background-color: #f9f9f9;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Trafix App - User Profile</h1>
+</header>
+
+<div class="container">
+    <div class="profile-section">
+        <div class="profile-header">
+            <h2 id="username">Name: </h2>
+            <p id="contact-info">Contact Info: </p>
+        </div>
+
+        <!-- Personal Experience Section -->
+        <div class="personal-experience">
+            <h3>Personal Experience</h3>
+            <p id="experience">No experience yet.</p>
+        </div>
+
+        <!-- Recent Activities Section -->
+        <div class="recent-activities">
+            <h3>Recent Activities</h3>
+            <div id="recent-activities-list">
+                <!-- Recent activities will be listed here -->
+                <div class="activity-item">Example activity 1</div>
+                <div class="activity-item">Example activity 2</div>
+                <div class="activity-item">Example activity 3</div>
+            </div>
+        </div>
+
+        <div class="profile-info">
+            <p>Recent Activities: <span id="recent-activities-count">0</span></p>
+        </div>
+
+        <button class="settings-button" onclick="openSettings()">Settings</button>
+        <button class="logout-button" onclick="logout()">Log Out</button>
+    </div>
+</div>
+
+<script>
+    // Example function for opening settings
+    function openSettings() {
+        alert("Settings functionality is under development.");
+    }
+
+    // Example logout function (redirect to login page)
+    function logout() {
+        // Implement your logout functionality here
+        window.location.href = "login.html"; // Redirect to login page (change to your login page URL)
+    }
+
+    // Example function to update profile details dynamically (can be expanded as needed)
+    function updateProfile(userName, contactInfo, experience, recentActivities) {
+        document.getElementById("username").textContent = "Name: " + userName;
+        document.getElementById("contact-info").textContent = "Contact Info: " + contactInfo;
+        document.getElementById("experience").textContent = experience;
+
+        let activitiesList = document.getElementById("recent-activities-list");
+        activitiesList.innerHTML = ""; // Clear the previous list
+        recentActivities.forEach(activity => {
+            let activityItem = document.createElement("div");
+            activityItem.classList.add("activity-item");
+            activityItem.textContent = activity;
+            activitiesList.appendChild(activityItem);
+        });
+    }
+
+    // Example call to update profile with sample data (replace with actual data in your app)
+    // This would ideally be replaced with actual data from your server or database
+    updateProfile("John Doe", "john.doe@example.com", "2 years experience in software development", ["Traveled 5 km", "Completed daily login", "Completed 1 km challenge"]);
+</script>
+
+</body>
+</html>
